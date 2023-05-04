@@ -33,7 +33,7 @@ platform = env.PioPlatform()
 board_config = env.BoardConfig()
 
 IS_WINDOWS = sys.platform.startswith("win")
-FRAMEWORK_DIR = platform.get_package_dir("framework-tqdfcore-stm32-arduinocore")
+FRAMEWORK_DIR = platform.get_package_dir("framework-tqdfcore-watchos")
 CMSIS_DIR = join(platform.get_package_dir("framework-cmsis"), "CMSIS")
 assert isdir(FRAMEWORK_DIR)
 assert isdir(CMSIS_DIR)
