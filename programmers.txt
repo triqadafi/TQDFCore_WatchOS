@@ -1,0 +1,5 @@
+tqdfcore_usb.name=TQDFCore Bootloader
+
+
+# clean this location %APPDATA%\arduino-ide\
+

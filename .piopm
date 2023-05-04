@@ -1,0 +1,11 @@
+{
+  "type": "tool", 
+  "name": "framework-tqdfcore-watchos", 
+  "version": "2.0.0", "spec": {
+    "owner": "platformio", 
+    "id": null, 
+    "name": "framework-tqdfcore-watchos", 
+    "requirements": null, 
+    "url": null
+  }
+}
