@@ -1,13 +1,12 @@
 # See: https://arduino.github.io/arduino-cli/latest/platform-specification/
 
-# menu.pnum=Board part number
-
-menu.aupload_method=Action
-menu.bdiwyor=------- [WARNING!] -------
-menu.cusb=UART Output
-menu.dopt=Optimize
-menu.ertlib=C Runtime Library
-menu.fbandwidth=Bandwidth
+menu.eupload_method=Action
+menu.fdiwyor=------- [WARNING!] -------
+menu.gpnum=Target Board
+menu.husb=UART Output
+menu.iopt=Optimize
+menu.jrtlib=C Runtime Library
+menu.kbandwidth=Bandwidth
 
 # menu.xserial=U(S)ART support
 # menu.xusb=USB speed (if available)
@@ -15,53 +14,10 @@ menu.fbandwidth=Bandwidth
 
 # menu.dbg=Debug symbols and core logs
 
-# ################################################################################
-# # Watch AEONF mk5
-# GenF1.name=Watch AEONF mk5
-
-# GenF1.build.core=arduino
-# GenF1.build.board=GenF1
-# GenF1.build.mcu=cortex-m3
-# GenF1.build.series=STM32F1xx
-# GenF1.build.cmsis_lib_gcc=arm_cortexM3l_math
-# GenF1.build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} {build.bootloader_flags}
-
-# GenF1.upload.maximum_size=131072
-# GenF1.upload.maximum_data_size=20480
-# GenF1.build.board=BLUEPILL_F103CB
-# GenF1.build.product_line=STM32F103xB
-# GenF1.build.variant_h=variant_PILL_F103Cx.h
-# GenF1.build.variant=STM32F1xx/F103C8T_F103CB(T-U)
-
-# # Upload menu (HID Bootloader 2.2)
-# GenF1.menu.aupload_method.hidMethod=TQDFCore Bootloader
-# GenF1.menu.aupload_method.hidMethod.upload.protocol=hid22
-# GenF1.menu.aupload_method.hidMethod.upload.tool=hid_upload
-# GenF1.menu.aupload_method.hidMethod.build.flash_offset=0x800
-# GenF1.menu.aupload_method.hidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
-
-# # Upload menu (TQDF HID Bootloader)
-# GenF1.menu.aupload_method.TQDFhidMethod=TQDFCore Bootloader
-# GenF1.menu.aupload_method.TQDFhidMethod.upload.protocol=hid
-# GenF1.menu.aupload_method.TQDFhidMethod.upload.tool=tqdfcore_upload
-# GenF1.menu.aupload_method.TQDFhidMethod.build.flash_offset=0x1000
-# GenF1.menu.aupload_method.TQDFhidMethod.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
-
-# GenF1.menu.aupload_method.swdMethod=STM32CubeProgrammer (SWD)
-# GenF1.menu.aupload_method.swdMethod.upload.protocol=0
-# GenF1.menu.aupload_method.swdMethod.upload.options=-g
-# GenF1.menu.aupload_method.swdMethod.upload.tool=stm32CubeProg
-
-# GenF1.menu.aupload_method.serialMethod=STM32CubeProgrammer (Serial)
-# GenF1.menu.aupload_method.serialMethod.upload.protocol=1
-# GenF1.menu.aupload_method.serialMethod.upload.options={serial.port.file} -s
-# GenF1.menu.aupload_method.serialMethod.upload.tool=stm32CubeProg
-
-
 ################################################################################
-# Watch AEONF mk6
+# Watch AEONF (Cortex M4)
 
-GenF4.name=Watch AEONF mk6
+GenF4.name=Watch AEONF (Cortex M4)
 
 GenF4.build.core=arduino
 GenF4.build.board=GenF4
@@ -71,142 +27,147 @@ GenF4.build.fpu=-mfpu=fpv4-sp-d16
 GenF4.build.float-abi=-mfloat-abi=hard
 GenF4.build.series=STM32F4xx
 GenF4.build.cmsis_lib_gcc=arm_cortexM4lf_math
-
+GenF4.build.variant=STM32F4xx/F401CC(F-U-Y)_F401C(B-D-E)(U-Y)
+GenF4.build.product_line=STM32F401xC
+GenF4.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
 GenF4.upload.maximum_size=262144
 GenF4.upload.maximum_data_size=65536
-GenF4.build.board=WATCH_AEONF_MK6
-GenF4.build.product_line=STM32F401xC
-GenF4.build.variant=STM32F4xx/F401CC(F-U-Y)_F401C(B-D-E)(U-Y)
-GenF4.build.variant_h=variant_{build.board}.h
-GenF4.build.peripheral_pins=-DCUSTOM_PERIPHERAL_PINS
 
-# GenF4.bootloader.tool=tqdfcore_bootloader
-GenF4.bootloader.file={build.series}/watch_{build.series}_tqdfcore_bootloader_enable_usb_cdc.bin
-GenF4.bootloader.file_offset={build.series}/watch_{build.series}_tqdfcore_bootloader_enable_usb_cdc_offset.bin
+GenF4.menu.gpnum.AEONF_MK7=AEONF_MK7
+GenF4.menu.gpnum.AEONF_MK7.build.board=WATCH_AEONF_MK7
+GenF4.menu.gpnum.AEONF_MK7.build.variant_h=variant_{build.board}.h
+GenF4.menu.gpnum.AEONF_MK7.bootloader.file={build.series}/{build.board}_tqdfcore_bootloader_enable_usb_cdc.bin
+GenF4.menu.gpnum.AEONF_MK7.bootloader.file_offset={build.series}/{build.board}_tqdfcore_bootloader_enable_usb_cdc_offset.bin
 
-# Upload menu (TQDF Bootloader)
-#GenF4.menu.aupload_method.TQDFMethodUSBSectorA=OS - [USB] TQDFCore Bootloader (Sector: Main) [default]
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA=Upload to MAIN sector [default]
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.build.flash_offset=0x8000
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.build.tqdfcli_flag=upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.build.tqdftools_flag=
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.upload.protocol=hid
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.upload.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.program.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.erase.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorA.bootloader.tool=tqdfcore_upload
-
-#GenF4.menu.aupload_method.TQDFMethodUSBSectorB=OS - [USB] TQDFCore Bootloader (Sector: Sandbox)
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB=Upload to SANDBOX sector
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.build.flash_offset=0x20000
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.build.tqdfcli_flag=upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.build.tqdftools_flag=-o=5
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.upload.protocol=hid
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.upload.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.program.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.erase.tool=tqdfcore_upload
-GenF4.menu.aupload_method.TQDFMethodUSBSectorB.bootloader.tool=tqdfcore_upload
+GenF4.menu.gpnum.AEONF_MK6=AEONF_MK6
+GenF4.menu.gpnum.AEONF_MK6.build.board=WATCH_AEONF_MK6
+GenF4.menu.gpnum.AEONF_MK6.build.variant_h=variant_{build.board}.h
+GenF4.menu.gpnum.AEONF_MK6.bootloader.file={build.series}/{build.board}_tqdfcore_bootloader_enable_usb_cdc.bin
+GenF4.menu.gpnum.AEONF_MK6.bootloader.file_offset={build.series}/{build.board}_tqdfcore_bootloader_enable_usb_cdc_offset.bin
 
 # Upload menu (TQDF Bootloader)
-# GenF4.menu.aupload_method.TQDFMethodSTLink=OS - [ST-Link] TQDFCore Bootloader (Sector: Main)
-# GenF4.menu.aupload_method.TQDFMethodSTLink.build.flash_offset=0x8000
-# GenF4.menu.aupload_method.TQDFMethodSTLink.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
+#GenF4.menu.eupload_method.TQDFMethodUSBSectorA=OS - [USB] TQDFCore Bootloader (Sector: Main) [default]
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA=Upload to MAIN sector [default]
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.build.flash_offset=0x8000
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.build.tqdfcli_flag=upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.build.tqdftools_flag=
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.upload.protocol=hid
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.upload.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.program.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.erase.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorA.bootloader.tool=tqdfcore_upload
 
-# GenF4.menu.aupload_method.TQDFMethodSTLink.upload.protocol=0
-# GenF4.menu.aupload_method.TQDFMethodSTLink.upload.options=-g
-# GenF4.menu.aupload_method.TQDFMethodSTLink.upload.tool=tqdfcore_stlink
+#GenF4.menu.eupload_method.TQDFMethodUSBSectorB=OS - [USB] TQDFCore Bootloader (Sector: Sandbox)
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB=Upload to SANDBOX sector
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.build.flash_offset=0x20000
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.build.tqdfcli_flag=upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.build.tqdftools_flag=-o=5
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.upload.protocol=hid
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.upload.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.program.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.erase.tool=tqdfcore_upload
+GenF4.menu.eupload_method.TQDFMethodUSBSectorB.bootloader.tool=tqdfcore_upload
 
-# GenF4.menu.aupload_method.TQDFMethodSTLink.program.protocol=0
-# GenF4.menu.aupload_method.TQDFMethodSTLink.program.options=-g
-# GenF4.menu.aupload_method.TQDFMethodSTLink.program.tool=tqdfcore_stlink
+# Upload menu (TQDF Bootloader)
+# GenF4.menu.eupload_method.TQDFMethodSTLink=OS - [ST-Link] TQDFCore Bootloader (Sector: Main)
+# GenF4.menu.eupload_method.TQDFMethodSTLink.build.flash_offset=0x8000
+# GenF4.menu.eupload_method.TQDFMethodSTLink.build.bootloader_flags=-DBL_HID -DVECT_TAB_OFFSET={build.flash_offset}
 
-# GenF4.menu.aupload_method.TQDFMethodSTLink.erase.protocol=0
-# GenF4.menu.aupload_method.TQDFMethodSTLink.erase.options=-g
-# GenF4.menu.aupload_method.TQDFMethodSTLink.erase.tool=tqdfcore_stlink
+# GenF4.menu.eupload_method.TQDFMethodSTLink.upload.protocol=0
+# GenF4.menu.eupload_method.TQDFMethodSTLink.upload.options=-g
+# GenF4.menu.eupload_method.TQDFMethodSTLink.upload.tool=tqdfcore_stlink
 
-# GenF4.menu.aupload_method.TQDFMethodSTLink.bootloader.protocol=0
-# GenF4.menu.aupload_method.TQDFMethodSTLink.bootloader.options=-g
-# GenF4.menu.aupload_method.TQDFMethodSTLink.bootloader.tool=tqdfcore_stlink
+# GenF4.menu.eupload_method.TQDFMethodSTLink.program.protocol=0
+# GenF4.menu.eupload_method.TQDFMethodSTLink.program.options=-g
+# GenF4.menu.eupload_method.TQDFMethodSTLink.program.tool=tqdfcore_stlink
+
+# GenF4.menu.eupload_method.TQDFMethodSTLink.erase.protocol=0
+# GenF4.menu.eupload_method.TQDFMethodSTLink.erase.options=-g
+# GenF4.menu.eupload_method.TQDFMethodSTLink.erase.tool=tqdfcore_stlink
+
+# GenF4.menu.eupload_method.TQDFMethodSTLink.bootloader.protocol=0
+# GenF4.menu.eupload_method.TQDFMethodSTLink.bootloader.options=-g
+# GenF4.menu.eupload_method.TQDFMethodSTLink.bootloader.tool=tqdfcore_stlink
 
 # Upload menu
-# GenF4.menu.aupload_method.dfuMethod=RECOVERY - [USB] STM32CubeProgrammer
-GenF4.menu.aupload_method.dfuMethod=Bootloader Update/Fix
-GenF4.menu.aupload_method.dfuMethod.build.tqdfcli_flag=boot
-GenF4.menu.aupload_method.dfuMethod.upload.protocol=2
-GenF4.menu.aupload_method.dfuMethod.upload.options=-g
-GenF4.menu.aupload_method.dfuMethod.upload.tool=stm32CubeProg
+# GenF4.menu.eupload_method.dfuMethod=RECOVERY - [USB] STM32CubeProgrammer
+GenF4.menu.eupload_method.dfuMethod=Bootloader Update/Fix
+GenF4.menu.eupload_method.dfuMethod.build.tqdfcli_flag=boot
+GenF4.menu.eupload_method.dfuMethod.upload.protocol=2
+GenF4.menu.eupload_method.dfuMethod.upload.options=-g
+GenF4.menu.eupload_method.dfuMethod.upload.tool=stm32CubeProg
 
-GenF4.menu.aupload_method.dfuMethod.program.protocol=2
-GenF4.menu.aupload_method.dfuMethod.program.options=-g
-GenF4.menu.aupload_method.dfuMethod.program.tool=stm32CubeProg
+GenF4.menu.eupload_method.dfuMethod.program.protocol=2
+GenF4.menu.eupload_method.dfuMethod.program.options=-g
+GenF4.menu.eupload_method.dfuMethod.program.tool=stm32CubeProg
 
-GenF4.menu.aupload_method.dfuMethod.erase.protocol=2
-GenF4.menu.aupload_method.dfuMethod.erase.options=-g
-GenF4.menu.aupload_method.dfuMethod.erase.tool=stm32CubeProg
+GenF4.menu.eupload_method.dfuMethod.erase.protocol=2
+GenF4.menu.eupload_method.dfuMethod.erase.options=-g
+GenF4.menu.eupload_method.dfuMethod.erase.tool=stm32CubeProg
 
-GenF4.menu.aupload_method.dfuMethod.bootloader.protocol=2
-GenF4.menu.aupload_method.dfuMethod.bootloader.options=-g
-GenF4.menu.aupload_method.dfuMethod.bootloader.tool=stm32CubeProg
+GenF4.menu.eupload_method.dfuMethod.bootloader.protocol=2
+GenF4.menu.eupload_method.dfuMethod.bootloader.options=-g
+GenF4.menu.eupload_method.dfuMethod.bootloader.tool=stm32CubeProg
 
 
-# GenF4.menu.aupload_method.swdMethod=RECOVERY - [ST-Link] STM32CubeProgrammer
-# GenF4.menu.aupload_method.swdMethod.upload.protocol=0
-# GenF4.menu.aupload_method.swdMethod.upload.options=-g
-# GenF4.menu.aupload_method.swdMethod.upload.tool=stm32CubeProg
+# GenF4.menu.eupload_method.swdMethod=RECOVERY - [ST-Link] STM32CubeProgrammer
+# GenF4.menu.eupload_method.swdMethod.upload.protocol=0
+# GenF4.menu.eupload_method.swdMethod.upload.options=-g
+# GenF4.menu.eupload_method.swdMethod.upload.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.swdMethod.program.protocol=0
-# GenF4.menu.aupload_method.swdMethod.program.options=-g
-# GenF4.menu.aupload_method.swdMethod.program.tool=stm32CubeProg
+# GenF4.menu.eupload_method.swdMethod.program.protocol=0
+# GenF4.menu.eupload_method.swdMethod.program.options=-g
+# GenF4.menu.eupload_method.swdMethod.program.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.swdMethod.erase.protocol=0
-# GenF4.menu.aupload_method.swdMethod.erase.options=-g
-# GenF4.menu.aupload_method.swdMethod.erase.tool=stm32CubeProg
+# GenF4.menu.eupload_method.swdMethod.erase.protocol=0
+# GenF4.menu.eupload_method.swdMethod.erase.options=-g
+# GenF4.menu.eupload_method.swdMethod.erase.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.swdMethod.bootloader.protocol=0
-# GenF4.menu.aupload_method.swdMethod.bootloader.options=-g
-# GenF4.menu.aupload_method.swdMethod.bootloader.tool=stm32CubeProg
+# GenF4.menu.eupload_method.swdMethod.bootloader.protocol=0
+# GenF4.menu.eupload_method.swdMethod.bootloader.options=-g
+# GenF4.menu.eupload_method.swdMethod.bootloader.tool=stm32CubeProg
 
-GenF4.menu.aupload_method.TQDFCLISyncronize=Syncronize Date and Time
-GenF4.menu.aupload_method.TQDFCLISyncronize.build.tqdfcli_flag=syncronize
-GenF4.menu.aupload_method.TQDFCLISyncronize.upload.protocol=
-GenF4.menu.aupload_method.TQDFCLISyncronize.upload.options=
-GenF4.menu.aupload_method.TQDFCLISyncronize.upload.tool=tqdfcore_watch_cli
+GenF4.menu.eupload_method.TQDFCLISyncronize=Syncronize Date and Time
+GenF4.menu.eupload_method.TQDFCLISyncronize.build.tqdfcli_flag=syncronize
+GenF4.menu.eupload_method.TQDFCLISyncronize.upload.protocol=
+GenF4.menu.eupload_method.TQDFCLISyncronize.upload.options=
+GenF4.menu.eupload_method.TQDFCLISyncronize.upload.tool=tqdfcore_watch_cli
 
-GenF4.menu.aupload_method.TQDFCLISyncronize.program.protocol=
-GenF4.menu.aupload_method.TQDFCLISyncronize.program.options=
-GenF4.menu.aupload_method.TQDFCLISyncronize.program.tool=tqdfcore_watch_cli
+GenF4.menu.eupload_method.TQDFCLISyncronize.program.protocol=
+GenF4.menu.eupload_method.TQDFCLISyncronize.program.options=
+GenF4.menu.eupload_method.TQDFCLISyncronize.program.tool=tqdfcore_watch_cli
 
-GenF4.menu.aupload_method.TQDFCLISyncronize.erase.protocol=
-GenF4.menu.aupload_method.TQDFCLISyncronize.erase.options=
-GenF4.menu.aupload_method.TQDFCLISyncronize.erase.tool=tqdfcore_watch_cli
+GenF4.menu.eupload_method.TQDFCLISyncronize.erase.protocol=
+GenF4.menu.eupload_method.TQDFCLISyncronize.erase.options=
+GenF4.menu.eupload_method.TQDFCLISyncronize.erase.tool=tqdfcore_watch_cli
 
-GenF4.menu.aupload_method.TQDFCLISyncronize.bootloader.protocol=calibrate
-GenF4.menu.aupload_method.TQDFCLISyncronize.bootloader.options=-datetime
-GenF4.menu.aupload_method.TQDFCLISyncronize.bootloader.tool=tqdfcore_watch_cli
+GenF4.menu.eupload_method.TQDFCLISyncronize.bootloader.protocol=calibrate
+GenF4.menu.eupload_method.TQDFCLISyncronize.bootloader.options=-datetime
+GenF4.menu.eupload_method.TQDFCLISyncronize.bootloader.tool=tqdfcore_watch_cli
 
-# GenF4.menu.aupload_method.serialMethod=[UART] Recovery
-# GenF4.menu.aupload_method.serialMethod.upload.protocol=1
-# GenF4.menu.aupload_method.serialMethod.upload.options={serial.port.file} -s
-# GenF4.menu.aupload_method.serialMethod.upload.tool=stm32CubeProg
+# GenF4.menu.eupload_method.serialMethod=[UART] Recovery
+# GenF4.menu.eupload_method.serialMethod.upload.protocol=1
+# GenF4.menu.eupload_method.serialMethod.upload.options={serial.port.file} -s
+# GenF4.menu.eupload_method.serialMethod.upload.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.serialMethod.program.protocol=1
-# GenF4.menu.aupload_method.serialMethod.program.options={serial.port.file} -s
-# GenF4.menu.aupload_method.serialMethod.program.tool=stm32CubeProg
+# GenF4.menu.eupload_method.serialMethod.program.protocol=1
+# GenF4.menu.eupload_method.serialMethod.program.options={serial.port.file} -s
+# GenF4.menu.eupload_method.serialMethod.program.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.serialMethod.erase.protocol=1
-# GenF4.menu.aupload_method.serialMethod.erase.options={serial.port.file} -s
-# GenF4.menu.aupload_method.serialMethod.erase.tool=stm32CubeProg
+# GenF4.menu.eupload_method.serialMethod.erase.protocol=1
+# GenF4.menu.eupload_method.serialMethod.erase.options={serial.port.file} -s
+# GenF4.menu.eupload_method.serialMethod.erase.tool=stm32CubeProg
 
-# GenF4.menu.aupload_method.serialMethod.bootloader.protocol=1
-# GenF4.menu.aupload_method.serialMethod.bootloader.options={serial.port.file} -s
-# GenF4.menu.aupload_method.serialMethod.bootloader.tool=stm32CubeProg
+# GenF4.menu.eupload_method.serialMethod.bootloader.protocol=1
+# GenF4.menu.eupload_method.serialMethod.bootloader.options={serial.port.file} -s
+# GenF4.menu.eupload_method.serialMethod.bootloader.tool=stm32CubeProg
 
 
 ################################################################################
 # Serialx activation (Enabled (generic 'Serial'))
-GenF4.menu.bdiwyor.none=Leave options below as [default]
+GenF4.menu.fdiwyor.none=Leave options below as [default]
 
 
 
@@ -214,83 +175,52 @@ GenF4.menu.bdiwyor.none=Leave options below as [default]
 # Serialx activation (Enabled (generic 'Serial'))
 
 # # USB connectivity (CDC (generic 'Serial' supersede U(S)ART))
-# GenF1.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
-
-#GenF4.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
-GenF4.menu.cusb.CDCgen=USB [default]
-GenF4.menu.cusb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
-GenF4.menu.cusb.none=UART1 [PA9/PA10 (TX/RX)]
+GenF4.menu.husb.CDCgen=USB [default]
+GenF4.menu.husb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+GenF4.menu.husb.none=UART1 [PA9/PA10 (TX/RX)]
 
 # # Optimizations
-# GenF1.menu.dopt.osstd=Smallest (-Os) [default]
-# GenF1.menu.dopt.oslto=Smallest (-Os) with LTO
-# GenF1.menu.dopt.oslto.build.flags.optimize=-Os -flto
-# GenF1.menu.dopt.o1std=Fast (-O1)
-# GenF1.menu.dopt.o1std.build.flags.optimize=-O1
-# GenF1.menu.dopt.o1lto=Fast (-O1) with LTO
-# GenF1.menu.dopt.o1lto.build.flags.optimize=-O1 -flto
-# GenF1.menu.dopt.o2std=Faster (-O2)
-# GenF1.menu.dopt.o2std.build.flags.optimize=-O2
-# GenF1.menu.dopt.o2lto=Faster (-O2) with LTO
-# GenF1.menu.dopt.o2lto.build.flags.optimize=-O2 -flto
-# GenF1.menu.dopt.o3std=Fastest (-O3)
-# GenF1.menu.dopt.o3std.build.flags.optimize=-O3
-# GenF1.menu.dopt.o3lto=Fastest (-O3) with LTO
-# GenF1.menu.dopt.o3lto.build.flags.optimize=-O3 -flto
-# GenF1.menu.dopt.ogstd=Debug (-Og)
-# GenF1.menu.dopt.ogstd.build.flags.optimize=-Og
-# GenF1.menu.dopt.o0std=No Optimization (-O0)
-# GenF1.menu.dopt.o0std.build.flags.optimize=-O0
 
-GenF4.menu.dopt.osstd=Smallest (-Os) [default]
-GenF4.menu.dopt.oslto=Smallest (-Os) with LTO
-GenF4.menu.dopt.oslto.build.flags.optimize=-Os -flto
-GenF4.menu.dopt.o1std=Fast (-O1)
-GenF4.menu.dopt.o1std.build.flags.optimize=-O1
-GenF4.menu.dopt.o1lto=Fast (-O1) with LTO
-GenF4.menu.dopt.o1lto.build.flags.optimize=-O1 -flto
-GenF4.menu.dopt.o2std=Faster (-O2)
-GenF4.menu.dopt.o2std.build.flags.optimize=-O2
-GenF4.menu.dopt.o2lto=Faster (-O2) with LTO
-GenF4.menu.dopt.o2lto.build.flags.optimize=-O2 -flto
-GenF4.menu.dopt.o3std=Fastest (-O3)
-GenF4.menu.dopt.o3std.build.flags.optimize=-O3
-GenF4.menu.dopt.o3lto=Fastest (-O3) with LTO
-GenF4.menu.dopt.o3lto.build.flags.optimize=-O3 -flto
-GenF4.menu.dopt.ogstd=Debug (-Og)
-GenF4.menu.dopt.ogstd.build.flags.optimize=-Og
-GenF4.menu.dopt.o0std=No Optimization (-O0)
-GenF4.menu.dopt.o0std.build.flags.optimize=-O0
+GenF4.menu.iopt.osstd=Smallest (-Os) [default]
+GenF4.menu.iopt.oslto=Smallest (-Os) with LTO
+GenF4.menu.iopt.oslto.build.flags.optimize=-Os -flto
+GenF4.menu.iopt.o1std=Fast (-O1)
+GenF4.menu.iopt.o1std.build.flags.optimize=-O1
+GenF4.menu.iopt.o1lto=Fast (-O1) with LTO
+GenF4.menu.iopt.o1lto.build.flags.optimize=-O1 -flto
+GenF4.menu.iopt.o2std=Faster (-O2)
+GenF4.menu.iopt.o2std.build.flags.optimize=-O2
+GenF4.menu.iopt.o2lto=Faster (-O2) with LTO
+GenF4.menu.iopt.o2lto.build.flags.optimize=-O2 -flto
+GenF4.menu.iopt.o3std=Fastest (-O3)
+GenF4.menu.iopt.o3std.build.flags.optimize=-O3
+GenF4.menu.iopt.o3lto=Fastest (-O3) with LTO
+GenF4.menu.iopt.o3lto.build.flags.optimize=-O3 -flto
+GenF4.menu.iopt.ogstd=Debug (-Og)
+GenF4.menu.iopt.ogstd.build.flags.optimize=-Og
+GenF4.menu.iopt.o0std=No Optimization (-O0)
+GenF4.menu.iopt.o0std.build.flags.optimize=-O0
 
 # Debug information (None)
 
 # # C Runtime Library
-# GenF1.menu.ertlib.nano=Newlib Nano [default]
-# GenF1.menu.ertlib.nanofp=Newlib Nano + Float Printf
-# GenF1.menu.ertlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
-# GenF1.menu.ertlib.nanofs=Newlib Nano + Float Scanf
-# GenF1.menu.ertlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
-# GenF1.menu.ertlib.nanofps=Newlib Nano + Float Printf/Scanf
-# GenF1.menu.ertlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
-# GenF1.menu.ertlib.full=Newlib Standard
-# GenF1.menu.ertlib.full.build.flags.ldspecs=
 
-GenF4.menu.ertlib.nano=Newlib Nano [default]
-GenF4.menu.ertlib.nanofp=Newlib Nano + Float Printf
-GenF4.menu.ertlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
-GenF4.menu.ertlib.nanofs=Newlib Nano + Float Scanf
-GenF4.menu.ertlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
-GenF4.menu.ertlib.nanofps=Newlib Nano + Float Printf/Scanf
-GenF4.menu.ertlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
-GenF4.menu.ertlib.full=Newlib Standard
-GenF4.menu.ertlib.full.build.flags.ldspecs=
+GenF4.menu.jrtlib.nano=Newlib Nano [default]
+GenF4.menu.jrtlib.nanofp=Newlib Nano + Float Printf
+GenF4.menu.jrtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+GenF4.menu.jrtlib.nanofs=Newlib Nano + Float Scanf
+GenF4.menu.jrtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+GenF4.menu.jrtlib.nanofps=Newlib Nano + Float Printf/Scanf
+GenF4.menu.jrtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+GenF4.menu.jrtlib.full=Newlib Standard
+GenF4.menu.jrtlib.full.build.flags.ldspecs=
 
 # Bandwidth
-GenF4.menu.fbandwidth.bandwidth8=8 bytes [default]
-GenF4.menu.fbandwidth.bandwidth8.build.tqdftools_bandwidth=-b=8
-GenF4.menu.fbandwidth.bandwidth16=16 bytes
-GenF4.menu.fbandwidth.bandwidth16.build.tqdftools_bandwidth=-b=16
-GenF4.menu.fbandwidth.bandwidth32=32 bytes
-GenF4.menu.fbandwidth.bandwidth32.build.tqdftools_bandwidth=-b=32
-GenF4.menu.fbandwidth.bandwidth64=64 bytes
-GenF4.menu.fbandwidth.bandwidth64.build.tqdftools_bandwidth=-b=64
+GenF4.menu.kbandwidth.bandwidth8=8 bytes [default]
+GenF4.menu.kbandwidth.bandwidth8.build.tqdftools_bandwidth=-b=8
+GenF4.menu.kbandwidth.bandwidth16=16 bytes
+GenF4.menu.kbandwidth.bandwidth16.build.tqdftools_bandwidth=-b=16
+GenF4.menu.kbandwidth.bandwidth32=32 bytes
+GenF4.menu.kbandwidth.bandwidth32.build.tqdftools_bandwidth=-b=32
+GenF4.menu.kbandwidth.bandwidth64=64 bytes
+GenF4.menu.kbandwidth.bandwidth64.build.tqdftools_bandwidth=-b=64
