@@ -1,6 +1,6 @@
 {
   "name": "framework-tqdfcore-watchos",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "TQDFCore is Arduino Wiring-based Framework for TQDF Watch.",
   "url": "https://github.com/triqadafi/TQDFCore_STM32_Arduino_Core"
 }
